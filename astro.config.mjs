@@ -1,11 +1,26 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import tailwind from '@astrojs/tailwind';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+
+import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://math.crossinguard.dev/',
   integrations: [
     starlight({
+      head: [
+        {
+          tag: 'link',
+          rel: 'stylesheet',
+          href: 'https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css',
+          integrity:
+            'sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV',
+          crossOrigin: 'anonymous',
+        },
+      ],
       title: 'math.crossinguard',
       defaultLocale: 'root',
       locales: {
@@ -19,7 +34,7 @@ export default defineConfig({
         replacesTitle: true,
       },
       social: {
-        github: 'https://github.com/crossinguard',
+        github: 'https://github.com/crossinguard/math',
       },
       sidebar: [
         {
@@ -76,11 +91,20 @@ export default defineConfig({
         {
           label: 'About',
           collapsed: true,
-          autogenerate: { directory: 'about' },
+          autogenerate: {
+            directory: 'about',
+          },
         },
       ],
       customCss: ['./src/tailwind.css', './src/custom.css'],
     }),
-    tailwind({ applyBaseStyles: false }),
+    tailwind({
+      applyBaseStyles: false,
+    }),
+    react(),
   ],
+  markdown: {
+    remarkPlugins: [remarkMath],
+    rehypePlugins: [rehypeKatex],
+  },
 });

@@ -1,16 +1,54 @@
 ---
 title: Concepts of a function
 description: Understand the concept of a function and use function notation
+lastUpdated: true
 ---
 
-## CCSS.Math.Content.HSF.IF.A.1
+import 'katex/dist/katex.min.css';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-Understand that a function from one set (called the domain) to another set (called the range) assigns to each element of the domain exactly one element of the range. If f is a function and x is an element of its domain, then f(x) denotes the output of f corresponding to the input x. The graph of f is the graph of the equation y = f(x).
+## What is a function?
 
-## CCSS.Math.Content.HSF.IF.A.2
+A function is a set of instructions. Provide the function an input and the function instructions will create an output specific to the input.
 
-Use function notation, evaluate functions for inputs in their domains, and interpret statements that use function notation in terms of a context.
+<Tabs>
+  <TabItem label="Function">
+    ```python
+    def introduce_yourself(name):
+      print("Hello, " + name + "! Nice to meet you.")
 
-## CCSS.Math.Content.HSF.IF.A.3
+    # Example usage:
+    introduce_yourself("crossinguard")
+    ```
 
-Recognize that sequences are functions, sometimes defined recursively, whose domain is a subset of the integers. For example, the Fibonacci sequence is defined recursively by f(0) = f(1) = 1f(n+1) = f(n) + f(n-1) for n ≥ 1.
+  </TabItem>
+  <TabItem label="Function Output">
+    `Hello, crossinguard! nice to meet you.`
+
+  </TabItem>
+</Tabs>
+
+In the function `introduce_yourself(name)`, the function is named "introduce_yourself" and accepts an input representing a name. Once that function is fed a name, it follows instructions, which in this case is to print/output a welcome message personalized to that name.
+
+## Content Standards
+
+<Tabs>
+  <TabItem label="HSF.IF.A.1">
+    Understand that a function from one set (called the domain) to another set
+    (called the range) assigns to each element of the domain exactly one element
+    of the range. If $f$ is a function and $x$ is an element of its domain, then
+    $f(x)$ denotes the output of $f$ corresponding to the input $x$. The graph
+    of $f$ is the graph of the equation $y = f(x)$.
+  </TabItem>
+  <TabItem label="HSF.IF.A.2">
+    Use function notation, evaluate functions for inputs in their domains, and interpret statements that use function notation in terms of a context.
+  </TabItem>
+  <TabItem label="HSF.IF.A.3">
+    Recognize that sequences are functions, sometimes defined recursively, whose domain is a subset of the integers.
+
+    For example, the Fibonacci sequence is defined recursively by
+
+    $f(0) = f(1) = 1, f(n+1) = f(n) + f(n-1) for n ≥ 1$
+
+  </TabItem>
+</Tabs>
